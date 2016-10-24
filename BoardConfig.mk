@@ -31,6 +31,13 @@ TARGET_NO_RADIOIMAGE := true
 TARGET_BOARD_PLATFORM := msm8974
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno330
 
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.product.first_api_level=23
+
+WITHOUT_CHECK_API := true
+
+
 # Architecture
 TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
@@ -101,8 +108,8 @@ endif
 TARGET_HW_DISK_ENCRYPTION := true
 
 # Flags for modem (we still have an old modem)
-COMMON_GLOBAL_CFLAGS += -DUSE_RIL_VERSION_10
-COMMON_GLOBAL_CPPFLAGS += -DUSE_RIL_VERSION_10
+#COMMON_GLOBAL_CFLAGS += -DUSE_RIL_VERSION_10
+#COMMON_GLOBAL_CPPFLAGS += -DUSE_RIL_VERSION_10
 
 # Filesystem
 BOARD_FLASH_BLOCK_SIZE := 131072
@@ -164,7 +171,7 @@ WITH_LZMA_OTA := true
 TARGET_NO_RPC := true
 
 # SELinux
-include device/qcom/sepolicy/sepolicy.mk
+#include device/qcom/sepolicy/sepolicy.mk
 
 BOARD_SEPOLICY_DIRS += \
     $(PLATFORM_PATH)/sepolicy
